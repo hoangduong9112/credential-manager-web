@@ -1,0 +1,30 @@
+.form-edit {
+  justify-content: center;
+  display: flex;
+  .card-form-edit {
+    justify-content: center;
+    display: flex !important;
+    max-width: 50vw;
+  }
+  .card-form-edit:hover {
+    transition: none;
+    border: 1px solid black;
+  }
+}
+.card-user-pic {
+  .author {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    img {
+      margin: 0;
+      margin-bottom: 5px;
+      height: 30vh;
+    }
+  }
+}
+.card-user-pic:hover {
+  transition: none !important;
+  border: 1px solid black !important;
+}
