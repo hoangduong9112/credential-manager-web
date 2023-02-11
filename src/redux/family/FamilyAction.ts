@@ -1,24 +1,29 @@
-import { FamilyInfo } from '../../types/family';
+import {FamilyInfo} from '../../types/family';
 
 export enum FamilyAction {
-  ADD_FAMILY = 'ADD_FAMILY',
-  EDIT_CURRENT_FAMILY = 'EDIT_CURRENT_FAMILY',
-  EDIT_CURRENT_LIST_FAMILY = 'EDIT_CURRENT_LIST_FAMILY',
+	ADD_FAMILY = 'ADD_FAMILY',
+	EDIT_FAMILY = 'EDIT_FAMILY',
+	DELETE_FAMILY = 'DELETE_FAMILY',
 }
 
 export interface FamilyGeneralAction<T> {
-  type: FamilyAction;
-  payload: T;
+	type: FamilyAction;
+	payload: T;
 }
 
-export const setCurrentFamily = (
-  family: FamilyInfo,
-): FamilyGeneralAction<FamilyInfo> => {
-  return { type: FamilyAction.EDIT_CURRENT_FAMILY, payload: family };
+export interface EditPayload {
+	id?: string;
+	family: FamilyInfo;
+}
+
+export const addFamilyAction = (family: FamilyInfo): FamilyGeneralAction<FamilyInfo> => {
+	return {type: FamilyAction.ADD_FAMILY, payload: family};
 };
 
-export const setCurrentListFamily = (
-  families: FamilyInfo[],
-): FamilyGeneralAction<FamilyInfo[]> => {
-  return { type: FamilyAction.EDIT_CURRENT_LIST_FAMILY, payload: families };
+export const editFamilyAction = (payload: EditPayload): FamilyGeneralAction<EditPayload> => {
+	return {type: FamilyAction.EDIT_FAMILY, payload};
+};
+
+export const deleteFamilyAction = (id: string): FamilyGeneralAction<string> => {
+	return {type: FamilyAction.DELETE_FAMILY, payload: id};
 };
